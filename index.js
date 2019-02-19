@@ -25,7 +25,17 @@ app.get("/https", (req,res) => {
 });
 
 app.get("/img", (req,res) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src http://http.cat/200;");
+  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src https://http.cat/200;");
+  res.render("index", { title: "index" });
+});
+
+app.get("/wildcard", (req,res) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; frame-src https://*.google.com;");
+  res.render("wild", { title: "wild" });
+});
+
+app.get("/all", (req,res) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src https://http.cat/200 https://some-other-image.jpg; frame-src https://some-ad.com; script-src https://some-external-script.js;");
   res.render("index", { title: "index" });
 });
 
