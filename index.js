@@ -30,7 +30,7 @@ app.get("/img", (req,res) => {
 });
 
 app.get("/wildcard", (req,res) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; frame-src https://*.google.com;");
+  res.setHeader("Content-Security-Policy", "default-src 'self'; frame-src https://*.mozilla.org;");
   res.render("wild", { title: "wild" });
 });
 
